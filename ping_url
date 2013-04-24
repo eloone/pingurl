@@ -1,0 +1,43 @@
+#!/bin/bash
+
+ping_url(){
+url=$(get_conf 'url')
+email=$(get_conf 'email')
+interval=$(get_conf 'interval')
+logs=$(get_conf 'logs')
+all=$@
+
+response=($(curl -sIL --url $url -w "%{http_code} %{url_effective}" -o /dev/null));
+date=$(date)
+log="${response[*]} $date"
+
+if [ "${response[0]}" != 200 ] && [[ -n $email ]]; then
+	echo "Status code for $url has changed : ${response[0]}." | mail -s "Status code changed" $email
+fi
+
+echo -n "ping_url done; status code = ${response[0]}; url = ${response[1]}"
+
+if [[ -n $logs ]] && $logs; then
+	echo "$log" >> ping_logs.txt
+	echo -n "; logs = ok" 	
+fi
+
+if [[ -n $interval ]]; then	
+	echo "; repeat in $interval..."	
+	sleep $interval		
+	ping_url $all
+fi
+
+echo -e "\r"
+
+}
+
+get_conf(){
+	awk -F":: *" -v pattern="$1 *::" '$0 ~ pattern {print $2}' conf
+}
+
+#Start
+ping_url $@
+
+
+

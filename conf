@@ -1,0 +1,4 @@
+[required] url :: http://www.github.com
+[optional] interval :: 1d
+[optional] logs :: true
+[optional] email :: notify@example.com

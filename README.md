@@ -7,11 +7,12 @@ Friendly command line utility to ping a url, log its http status and notify you 
 Because sometimes you need to ping a url for a rational reason or not. 
 <br/><br/>This script was designed to ping a url for a given interval that you set.
 It is best used if you need to continuously ping a url in the background and not worry about it until the status code changes. For this reason, 
-the settings are done in a `conf` file at once. If you need to punctually ping a url, you can do this in a one liner, see <b>Notes</b>.
+the settings are done in a `conf` file at once. If you need to punctually ping a url, you can do this in a one liner, see <a href="#notes">Notes</a>.
 
 ## Features
 
 * Configure a conf file with your preferred settings
+* Set the url to ping in a conf file
 * [option] Set the interval at which the script should execute
 * [option] Log the resulting http status in the file `ping_logs.txt` | format = [status][url][date]
 * [option] Notify you at your email address when the status code is not 200
@@ -22,7 +23,7 @@ the settings are done in a `conf` file at once. If you need to punctually ping a
 
 ## Usage
 
-1. Edit the `conf` file with your settings. See <b>Configuration</b>.
+1. Set the url you want to ping in the `conf` file. Then edit the `conf` with your other settings. See <a href="#configuration">Configuration</a>.
 
 2. Run the script from the repository folder
 

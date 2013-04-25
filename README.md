@@ -17,6 +17,12 @@ the settings are done in a `conf` file at once. If you need to punctually ping a
 * [option] Log the resulting http status in the file `ping_logs.txt` | format = [status][url][date]
 * [option] Notify you at your email address when the status code is not 200
 
+## Requirements
+
+* The `mail` utility if you want to be notified by email. To get it : `sudo apt-get install mailutils`
+* The machine on which you run the script should have a smtp server enabled on it
+* This script has been tested for Ubuntu 11.1
+
 ## Installation
 
 1. [download](https://github.com/eloone/pingurl/archive/master.zip) the repository

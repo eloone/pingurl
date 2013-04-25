@@ -7,6 +7,11 @@ interval=$(get_conf 'interval')
 logs=$(get_conf 'logs')
 all=$@
 
+if [ -z "$url" ]; then
+	echo "The url parameter is required. Please set the url in the conf file."
+	exit
+fi
+
 response=($(curl -sIL --url $url -w "%{http_code} %{url_effective}" -o /dev/null));
 date=$(date)
 log="${response[*]} $date"

@@ -9,7 +9,7 @@ Because sometimes you need to ping a url for a rational reason or not.
 It is best used if you need to continuously ping a url in the background and not worry about it until the status code changes. For this reason, 
 the settings are done in a `conf` file at once. If you need to punctually ping a url, you can do this in a one liner, see <a href="#notes">Notes</a>. 
 
-Also you have got to read the story of this script, you will love it forever:
+Also you have got to read the story of this script, you will love it forever (the script, I mean):
 http://machinesaredigging.com/2013/04/28/therapy-by-software/
 
 ## Features
